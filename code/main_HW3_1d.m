@@ -21,7 +21,7 @@ plot(omega,ITER,'b-o','LineWidth',2,'MarkerSize',3)
 xlabel('ω')
 ylabel('Iteration number')
 
-saveas(O, ['omega' num2str(dk)], png)
+saveas(O, ['omega' num2str(dk) 'k'], 'png')
 
 function sol = prec_SSOR(rhs, D_omegaL, diag_D)
     sol = D_omegaL' \ (diag_D * (D_omegaL \ rhs));
