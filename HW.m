@@ -15,5 +15,6 @@ save mtx_100k.mat cputime lambda ev residual -mat
 
 %% filename = matrix with dimension 1000k
 filename = 'out.roadNet-PA';
+main_HW1_1;
 main_HW_2;
 save mtx_1000k.mat cputime lambda ev residual -mat
