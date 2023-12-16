@@ -4,20 +4,20 @@ diag_D = sparse(1:n,1:n,diag(shift_L));
 maxit = 1000;
 omegadatanum = 50;
 
-ITER = zeros(omegadatanum,1);
+Iter.HW3_1d = zeros(omegadatanum,1);
 
 omega = linspace(0,2,omegadatanum);
 
 tic
 for i = 1:omegadatanum
 D_omegaL = diag_D + omega(i) * lower_L;
-[sol,flag,RelRes,ITER(i)] = pcg(shift_L, b, tol, maxit, ...
+[sol,flag,RelRes,Iter.HW3_1d(i)] = pcg(shift_L, b, tol, maxit, ...
     @(x)prec_SSOR(x, D_omegaL, diag_D));
 end
 cputime.SSOR = toc;
 
 O = figure;
-plot(omega,ITER,'b-o','LineWidth',2,'MarkerSize',3)
+plot(omega,Iter.HW3_1d,'b-o','LineWidth',2,'MarkerSize',3)
 xlabel('ω')
 ylabel('Iteration number')
 
